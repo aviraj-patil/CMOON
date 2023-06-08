@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body {
+        background-color: #080808;
+        color: #fff;
+        font-family: monospace;
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
+    .container {
+        margin: 0;
+        padding: 0;
+        height: 95vh;
+        width: 95vw;
+    }
+    textarea {
+        width: 100%;
+        background-color: #080808;
+        border-radius: .5rem .5rem;
+        color: #fff;
+        font-size: 2rem;
+        height: calc(100% - 2rem);
+        padding: 1rem;
+    }
+    textarea:focus {
+        outline: 0;
+    }
+    button {
+        font-size: 2rem;
+        background-color: #999;
+        padding: .5rem;
+        border: 0;
+        border-radius: .5rem;
+    }
+    .buttons {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        /* transform: translateX(-50%); */
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="buttons">
+
+            <button onclick="copyTextareaText()" >COPY</button>
+            <button onclick="clearTextareaText()" >RESET</button>
+        </div>
+        <textarea name="myTextarea" id="myTextarea" cols="30" rows="30">
+        </textarea>
+    </div>
+    <script>
+        function copyTextareaText() {
+  // Get the textarea element
+  var textarea = document.getElementById("myTextarea");
+
+  // Select the text within the textarea
+  textarea.select();
+
+  // Copy the selected text to the clipboard
+  document.execCommand("copy");
+
+  // Deselect the textarea
+  textarea.blur();
+
+  // Alert or log a message to indicate the text has been copied
+  document.getElementById("myTextarea").value = "";
+}
+
+ function clearTextareaText(){
+  var textarea = document.getElementById("myTextarea");
+  document.getElementById("myTextarea").value = "";
+
+ }
+
+    </script>
+</body>
+</html>
